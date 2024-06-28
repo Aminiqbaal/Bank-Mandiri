@@ -1,0 +1,43 @@
+Method /POST
+Endpoint 
+    {{host}}ms/members/v1/members/check
+REQ
+    Header
+    X-localization: {{LANGUAGE}}
+    Content-Type:application/json
+    x-api-Key: {{API_KEY}}
+    channel: {{CHANNEL}}
+    Body
+    {
+        "email": "user@example.com",
+        "password": "password123",
+        "biometric" : " biometric123"
+    }
+      
+      
+RESP
+success
+{
+    "status": true,
+    "code": "CU001",
+    "message": true,
+    "errorMessage": null,
+    "errorData": null,
+    "data": {
+        "message": "Registration successful",
+        "userId": "12345"
+    }
+}
+
+failed
+{
+    "status": true,
+    "code": "CU002",
+    "message": null,
+    "errorMessage": "Login failed",
+    "errorData": {
+        "errorTitle": "Login Failed",
+        "errorDesc": "Please check your email/password"
+    },
+    "data": null
+}

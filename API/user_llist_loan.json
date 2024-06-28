@@ -1,0 +1,65 @@
+Method /GET
+Endpoint 
+    {{host}}ms/members/v1/list-loan? userId={userId}
+REQ
+    Header
+    X-localization: {{LANGUAGE}}
+    Authorization: Bearer jwt-token
+    Content-Type:application/json
+    x-api-Key: {{API_KEY}}
+    channel: {{CHANNEL}}
+
+RESP
+{
+    "status": true,
+    "code": "LU001",
+    "message": true,
+    "errorMessage": null,
+    "errorData": null,
+    "data": {
+        "loans": [
+            {
+                "loanId": "1",
+                "amount": 5000000,
+                "tenure": 12,
+                "status": {
+                    "statusId" : "1",
+                    "description" : "approved"
+                },
+                "createdAt": "2023-06-01T00:00:00Z"
+            },
+            {
+                "loanId": "2",
+                "amount": 5000000,
+                "tenure": 12,
+                "status": {
+                    "statusId" : "2",
+                    "description" : "rejected"
+                },
+                "createdAt": "2023-06-01T00:00:00Z"
+            },
+            {
+                "loanId": "3",
+                "amount": 5000000,
+                "tenure": 12,
+                "status": {
+                    "statusId" : "3",
+                    "description" : "pending"
+                },
+                "createdAt": "2023-06-01T00:00:00Z"
+            }
+        ]
+    }
+}
+
+{
+    "status": true,
+    "code": "LU002",
+    "message": null,
+    "errorMessage": "Registration failed",
+    "errorData": {
+        "errorTitle": "Registration Failed",
+        "errorDesc": "Please check your email/password"
+    },
+    "data": null
+}
